@@ -85,6 +85,15 @@ if (isset($_POST['upload'])) {
 			  </div>
 		  </form>
 	      </div>
+        <?php
+      $query = " select * from image ";
+		    $result = mysqli_query($conn, $query);
+        while ($data = mysqli_fetch_assoc($result)) 
+        {
+         echo   $data['filename']; ?><br>
+         <?php
+        }
+		  ?>
     
     
         </section>
