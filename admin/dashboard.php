@@ -24,6 +24,11 @@ if (isset($_POST['upload'])) {
 		echo '<script>alert("Failed to upload image!")</script>';	
 	}
 }
+
+
+$query2="select * from feedback order by id desc ";
+$result2=mysqli_query($conn, $query2);
+
 ?>
 
 <html>
@@ -40,10 +45,10 @@ if (isset($_POST['upload'])) {
     <div class="navbar">
           <ul>
             <li><a href="dashboard.php"><i class="fa fa-home"></i>Dashboard</a></li>
-            <li><a href=""><i class="fa fa-caret-down"></i>Profile</a></li>
-             <li><a href="#post"><i class="fa fa-product-hunt"></i>Post</a></li>
+            <li><a href="profile.php"></i class="fa fa-caret-down"></i>Profile</a></li>
+             <li><a href="post.php"><i class="fa fa-product-hunt"></i>Post</a></li>
               <li><a href=""><i class="fa fa-clone"></i>Delete</a></li>
-               <li><a href=""><i class="fa fa-user"></i>Feedback</a></li>
+               <li><a href=""><i class="fa fa-user"></i>Random</a></li>
 
            <div class="dropdown">
                 <button onclick="myFunction()" class="dropbtn">welcome <?php echo $res['name']?></button>
@@ -71,34 +76,34 @@ if (isset($_POST['upload'])) {
               </script>
 
           </ul>
-        </div>
-        
-        <section class="post" id="post" >
-
-        <div id="content">
-		    <form method="POST" action="" enctype="multipart/form-data">
-			  <div class="form-group">
-				<input class="form-control" type="file" name="uploadfile" value="" required />
-			  </div>
-			  <div class="form-group">
-				<center><button class="btn btn-primary" type="submit" name="upload" >UPLOAD</button></center>
-			  </div>
-		  </form>
-	      </div>
-        <?php
-      $query = " select * from image ";
-		    $result = mysqli_query($conn, $query);
-        while ($data = mysqli_fetch_assoc($result)) 
-        {
-         echo   $data['filename']; ?><br>
-         <?php
-        }
-		  ?>
-    
-    
-        </section>
-
-       
+            </div>   
+            <div class="row">
+            <?php
+            if(mysqli_num_rows($result2) > 0)
+	            {
+                while($row = mysqli_fetch_array($result2))
+		{?>
   
+  
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $row["name"]; ?></h5>
+        <h6 class="card-title"><?php echo $row["email"]; ?></h6>
+        <h6 class="card-title"><?php echo $row["place"]; ?></h6>
+        <p class="card-text"><?php echo $row["msg"]; ?></p>
+        <a href="#" class="btn btn-primary">Reply</a>
+
+      </div>
+    </div>
+  </div>
+  <?php }?>
+</div>
+
+              <?php }
+              else
+              
+              echo "<h1 style='color:red;'><center>Currently out of stock!</h1></center>";
+              ?>
 </body>
 </html>
