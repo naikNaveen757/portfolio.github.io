@@ -1,7 +1,7 @@
 <?php
 require('connection.php');
 require('functions.inc.php');
-$msg='';
+
 if(isset($_POST['submit'])){
 	$username=get_safe_value($conn,$_POST['username']);
 	$password=get_safe_value($conn,$_POST['password']);
@@ -40,12 +40,7 @@ if(isset($_POST['submit'])){
               <div class="card" style="border-radius: 1rem;">
                 <div class="row g-0">
                   <div class="col-md-6 col-lg-5 d-none d-md-block">
-                    <img src="images\admin.jpg
-					
-					
-					
-					"
-                      alt="image error" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                    <img src="images\admin.jpg" alt="image error" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
                   </div>
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-5 text-black">

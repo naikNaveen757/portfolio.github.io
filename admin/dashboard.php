@@ -1,73 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
+<?php
+require('connection.php');
+require('functions.inc.php');
 
-<!-- Tabs navs -->
-<ul class="nav nav-tabs mb-3" id="ex1" role="tablist">
-  <li class="nav-item" role="presentation">
-    <a
-      class="nav-link active"
-      id="ex1-tab-1"
-      data-mdb-toggle="tab"
-      href="#ex1-tabs-1"
-      role="tab"
-      aria-controls="ex1-tabs-1"
-      aria-selected="true"
-      >Tab 1</a
-    >
-  </li>
-  <li class="nav-item" role="presentation">
-    <a
-      class="nav-link"
-      id="ex1-tab-2"
-      data-mdb-toggle="tab"
-      href="#ex1-tabs-2"
-      role="tab"
-      aria-controls="ex1-tabs-2"
-      aria-selected="false"
-      >Tab 2</a
-    >
-  </li>
-  <li class="nav-item" role="presentation">
-    <a
-      class="nav-link"
-      id="ex1-tab-3"
-      data-mdb-toggle="tab"
-      href="#ex1-tabs-3"
-      role="tab"
-      aria-controls="ex1-tabs-3"
-      aria-selected="false"
-      >Tab 3</a
-    >
-  </li>
-</ul>
-<!-- Tabs navs -->
+$userId = $_SESSION['id'];   
+$query = "SELECT * FROM user where id=$userId";
+$result = mysqli_query($conn, $query);
+$res=mysqli_fetch_assoc($result);
 
-<!-- Tabs content -->
-<div class="tab-content" id="ex1-content">
-  <div
-    class="tab-pane fade show active"
-    id="ex1-tabs-1"
-    role="tabpanel"
-    aria-labelledby="ex1-tab-1"
-  >
-    Tab 1 content
-  </div>
-  <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
-    Tab 2 content
-  </div>
-  <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
-    Tab 3 content
-  </div>
-</div>
-<!-- Tabs content -->
+
+if (isset($_POST['upload'])) {
+
+	$filename = $_FILES["uploadfile"]["name"];
+	$tempname = $_FILES["uploadfile"]["tmp_name"];
+	$folder = "image/" . $filename;
+
+
+	$sql = "INSERT INTO image (filename) VALUES ('$filename')";
+	mysqli_query($conn, $sql);
+
+	if (move_uploaded_file($tempname, $folder)) {
+		echo '<script>alert("Image uploaded successfully!")</script>';	
+	} else {
+		echo '<script>alert("Failed to upload image!")</script>';	
+	}
+}
+?>
+
+<html>
+  <head>
+    <title>web page</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+ <body>
+  <div class="banner">
+    <div class="navbar">
+          <ul>
+            <li><a href="dashboard.php"><i class="fa fa-home"></i>Dashboard</a></li>
+            <li><a href=""><i class="fa fa-caret-down"></i>Profile</a></li>
+             <li><a href="#post"><i class="fa fa-product-hunt"></i>Post</a></li>
+              <li><a href=""><i class="fa fa-clone"></i>Delete</a></li>
+               <li><a href=""><i class="fa fa-user"></i>Feedback</a></li>
+
+           <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">welcome <?php echo $res['name']?></button>
+                <div id="myDropdown" class="dropdown-content">
+                      <a href="logout.php">Logout</a>
+           </div>
+                </div>
+
+              <script>
+              function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+              }
+              window.onclick = function(event) {
+                if (!event.target.matches('.dropbtn')) {
+                  var dropdowns = document.getElementsByClassName("dropdown-content");
+                  var i;
+                  for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                      openDropdown.classList.remove('show');
+                    }
+                  }
+                }
+              }
+              </script>
+
+          </ul>
+        </div>
+        
+        <section class="post" id="post" >
+
+        <div id="content">
+		    <form method="POST" action="" enctype="multipart/form-data">
+			  <div class="form-group">
+				<input class="form-control" type="file" name="uploadfile" value="" required />
+			  </div>
+			  <div class="form-group">
+				<center><button class="btn btn-primary" type="submit" name="upload" >UPLOAD</button></center>
+			  </div>
+		  </form>
+	      </div>
+    
+    
+        </section>
+
+       
+  
 </body>
 </html>
