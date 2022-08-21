@@ -15,7 +15,7 @@ if (isset($_POST['upload'])) {
 	$folder = "image/profile/" . $filename;
 
 
-	$sql = "INSERT INTO profile (filename) VALUES ('$filename')";
+	$sql = "Update profile set filename= '$filename'";
 	mysqli_query($conn, $sql);
 
 	if (move_uploaded_file($tempname, $folder)) {
@@ -39,11 +39,11 @@ if (isset($_POST['upload'])) {
   <div class="banner">
     <div class="navbar">
           <ul>
-            <li><a href="dashboard.php"><i class="fa fa-home"></i>Dashboard</a></li>
+          <li><a href="dashboard.php"><i class="fa fa-home"></i>Dashboard</a></li>
             <li><a href="profile.php"></i class="fa fa-caret-down"></i>Profile</a></li>
              <li><a href="post.php"><i class="fa fa-product-hunt"></i>Post</a></li>
-              <li><a href=""><i class="fa fa-clone"></i>Delete</a></li>
-               <li><a href=""><i class="fa fa-user"></i>Random</a></li>
+              <li><a href="post2.php"><i class="fa fa-clone"></i>post2</a></li>
+               <li><a href="feedback.php"><i class="fa fa-user"></i>Feedback</a></li>
 
            <div class="dropdown">
                 <button onclick="myFunction()" class="dropbtn">welcome <?php echo $res['name']?></button>

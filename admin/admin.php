@@ -40,7 +40,7 @@ if(isset($_POST['submit'])){
               <div class="card" style="border-radius: 1rem;">
                 <div class="row g-0">
                   <div class="col-md-6 col-lg-5 d-none d-md-block">
-                    <img src="images\admin.jpg" alt="image error" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                    <img src="bg.jpg" alt="image error" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
                   </div>
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-5 text-black">
@@ -49,7 +49,7 @@ if(isset($_POST['submit'])){
       
                                 <div class="d-flex align-items-center mb-3 pb-1">
                                   <i class="fas fa-cubes fa-2x me-3" style="color: #ff6229;"></i>
-                                  <span class="h1 fw-bold mb-0">MASTER NAVEEN</span>
+                                  <span class="h1 fw-bold mb-0">MASTER LOGIN</span>
                                 </div>
               
                                 <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
@@ -60,13 +60,13 @@ if(isset($_POST['submit'])){
                                 </div>
               
                                 <div class="form-outline mb-4">
-                                  <input type="pass" name="password" class="form-control form-control-lg" required/>
+                                  <input type="password" name="password" class="form-control form-control-lg" required/>
                                   <label class="form-label" for="form2Example27">Password</label>
                                 </div>
               
                                 <div class="pt-1 mb-4">
                                   <button class="btn btn-dark btn-lg btn-block" type="submit" name="submit">Login</button>
-								  <a href="/main.html" button class="btn btn-dark btn-lg btn-block" type="button" >Home</button></a>
+								  <a href=".index.php" button class="btn btn-dark btn-lg btn-block" type="button" >Home</button></a>
                                 </div>
                                
                       </form>

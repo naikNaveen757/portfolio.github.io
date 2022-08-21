@@ -16,7 +16,7 @@ require('../admin/connection.php');
     <title>photography(htmlcss)</title>
 </head>
 <body>
-    <a href="../index.html#skill">&laquo;BACK</a>
+    <a href="../index.php#skill">&laquo;BACK</a>
      <h1>PHOTOGRAPHY GALLERY</h1>
     <div class="gallery" id="gallery">
         <?php

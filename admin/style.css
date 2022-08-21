@@ -1,141 +1,120 @@
-body{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-  }
-  /*background*/
-  .banner{
-    width: 100%;
-    height: 100vh;
-  
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-  /*header*/
-  .navbar
-  {
-    background-color: rgb(65, 72, 82);
-    width: 100%; 
-    padding: -5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .navbar ul li
-  {
-    list-style-type: none;
-    display: inline-block;
-    margin: 0px 20px;
-    position: relative;
-  }
-  .navbar ul li a
-  {
-    text-decoration: none;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+/*background*/
+.banner {
+  width: 100%;
+  height: 100vh;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+/*header*/
+.navbar {
+  background-color: rgb(65, 72, 82);
+  width: 100%;
+  padding: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar ul li {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0px 20px;
+  position: relative;
+}
+.navbar ul li a {
+  text-decoration: none;
   color: #fff;
   text-transform: uppercase;
-  }
-  .navbar ul li ::after
-  {
-    content: ' ';
-    height: 3px;
-    width: 0;
-    background:#88BDBc;
-    position: absolute;
-    left: 0px;
-    bottom: -10px;
-    transition: 0.5s;
-  }
-  .navbar ul li :hover::after
-  {
-    width: 100%;
-  
-  }
-  .navbar .fa
-  {
-    width: 20px;
-  }
-  /**drop down**/
-  .dropbtn {
-    color: white;
-    padding: 3px;
-    width: 80%;
-    font-size: 16px;
-    text-transform: uppercase;
-    font-family: sans-serif;
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
-  }
-  
-  .dropdown 
-  {
-    background: none;
-    position: relative;
-    left: 100%;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(71, 255, 46, 0.849);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover
-   {
-     background-color: #f1f1f1
-   }
-  
-  .dropdown:hover .dropdown-content 
-  {
-    display: block;
-  }
-  
-  .dropdown:hover .dropbtn 
-  {
-    background: none;
-  }
-  
- 
-  .content
-  {
-    position: absolute
-    top 50%;
-    transform: translateY(-21%);
-    text-align: center;
-    color: #fff;
-    
-  }
+}
+.navbar ul li ::after {
+  content: " ";
+  height: 3px;
+  width: 0;
+  background: #88bdbc;
+  position: absolute;
+  left: 0px;
+  bottom: -10px;
+  transition: 0.5s;
+}
+.navbar ul li :hover::after {
+  width: 100%;
+}
+.navbar .fa {
+  width: 20px;
+}
+/**drop down**/
+.dropbtn {
+  color: white;
+  padding: 3px;
+  width: 80%;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
 
+.dropdown {
+  background: none;
+  position: relative;
+  left: 110%;
+  display: inline-block;
+}
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(71, 255, 46, 0.849);
+  z-index: 1;
+}
 
- 
-  
-  #content{
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    border: 5px solid #88BDBc;
-    border-radius: 9px;
-  }
-  form{
-    width: 50%;
-    margin: 20px auto;
-    border: 2px solid #000000;
-    border-radius: 9px;
-  }
-  
-  
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background: none;
+}
+
+.content {
+  position: absolute top 50%;
+  transform: translateY(-21%);
+  text-align: center;
+  color: #fff;
+}
+
+#content {
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  border: 5px solid #88bdbc;
+  border-radius: 9px;
+}
+form {
+  width: 50%;
+  margin: 20px auto;
+  border: 2px solid #000000;
+  border-radius: 9px;
+}

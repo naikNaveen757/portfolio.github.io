@@ -3,8 +3,7 @@ require('./admin/connection.php');
 require('./admin/functions.inc.php');
 
 
-        // $id="select * from profile order by Number desc limit 0,1";
-        // echo"$id";
+       
 		$query = "select * from profile";
 		$result = mysqli_query($conn, $query);
 
@@ -22,7 +21,8 @@ require('./admin/functions.inc.php');
         }
         else
         {   
-            echo "<script>alert('Thank you for your feedback')</script>";
+            echo "<script>alert('Thank you for your feedback');
+            window.location.href='index.php#home';</script>";
         }
     }
 ?>
@@ -83,7 +83,7 @@ require('./admin/functions.inc.php');
     </p>
  
         <!--<img src="images/user/bg_image.png" alt=""> -->
-        <img src="images/user/bg_image2.png" alt="">
+        <img src="images/bg_image2.png" alt="">
   
     <a href="#about"><button class="btn">about me <i class="fas fa-user"></i></button></a>
     
@@ -180,7 +180,7 @@ require('./admin/functions.inc.php');
     
             <div class="box">
                 
-                <a href="Gallery/illustration.html">
+                <a href="Gallery/illustration.php">
                     <i class="fa-solid fa-palette"></i>
                 </a>
                  <h2><b>Digital Art</b></h4>
@@ -246,12 +246,12 @@ require('./admin/functions.inc.php');
     <h1 class="heading">Web Application</h1>
     <h2>This is a web Application built for BCA project using html,css,bootstrap,php and xamp <br> following are the sample images</h2>
     
-         <img src="/images/web/1.jpg">
-         <img src="/images/web/2.jpg">
-         <img src="/images/web/productfoort.jpg">
-         <img src="/images/web/whyuss.jpg">
-         <img src="/images/web/3.jpg">
-         <img src="/images/web/4.jpg">
+         <img src="images/web/1.jpg">
+         <img src="images/web/2.jpg">
+         <img src="images/web/productfoort.jpg">
+         <img src="images/web/whyuss.jpg">
+         <img src="images/web/3.jpg">
+         <img src="images/web/4.jpg">
     
 </section>
 
@@ -277,9 +277,9 @@ require('./admin/functions.inc.php');
     
         <form method="post">
     
-            <input type="text" placeholder="name" name="name" class="box"required>
+            <input type="text" placeholder="name" name="name" class="box" required>
             <input type="email" placeholder="email" name="email" class="box" required>
-            <input type="text" placeholder="place" name="place" class="box"required>
+            <input type="text" placeholder="place" name="place" class="box" required>
             <textarea name="feedback" id="" cols="30" rows="10" class="box message" placeholder="message" name="feedback"></textarea required>
             <button type="submit" class="btn" name="submit" id="submit"> send <i class="fas fa-paper-plane"></i> </button>
     
